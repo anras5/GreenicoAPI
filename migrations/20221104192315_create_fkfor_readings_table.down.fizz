@@ -1,0 +1,1 @@
+drop_foreign_key("READINGS", "READINGS_PICO_id_fk", {})

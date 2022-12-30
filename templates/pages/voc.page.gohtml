@@ -1,0 +1,21 @@
+{{template "header"}}
+
+{{template "graph"}}
+
+{{template "footer"}}
+
+{{template "script"}}
+<script>
+    x = [];
+    {{range .data}}
+    x = [...x, {{.CreatedAt}}]
+    {{end}}
+
+    y = [];
+    {{range .data}}
+    y = [...y, {{.VOC}}]
+    {{end}}
+
+    drawPlot(x, y, "Air Pollution", "VOC")
+</script>
+{{template "end"}}

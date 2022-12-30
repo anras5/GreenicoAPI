@@ -1,0 +1,9 @@
+create_table("READINGS") {
+ t.Column("id", "integer", {primary: true})
+ t.Column("temperature", "float", {})
+ t.Column("humidity", "float", {})
+ t.Column("pressure", "float", {})
+ t.Column("voc", "float", {})
+ t.Column("uv", "float", {})
+ t.Column("light", "float", {})
+}

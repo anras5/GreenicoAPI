@@ -1,0 +1,1 @@
+add_column("READINGS", "pico_id", "integer", {})

@@ -1,0 +1,21 @@
+{{template "header"}}
+
+{{template "graph"}}
+
+{{template "footer"}}
+
+{{template "script"}}
+<script>
+    x = [];
+    {{range .data}}
+    x = [...x, {{.CreatedAt}}]
+    {{end}}
+
+    y = [];
+    {{range .data}}
+    y = [...y, {{.Light}}]
+    {{end}}
+
+    drawPlot(x, y, "Light", "Light [Lux]")
+</script>
+{{template "end"}}
