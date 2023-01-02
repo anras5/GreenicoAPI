@@ -2,6 +2,7 @@ package main
 
 import (
 	"database/sql"
+	"fmt"
 	"github.com/anras5/GreenicoAPI/internal/handlers"
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
@@ -12,8 +13,14 @@ import (
 func main() {
 
 	err := godotenv.Load()
-
-	psqlInfo := os.Getenv("PSQL_INFO")
+	host := os.Getenv("HOSTNAME")
+	dbname := os.Getenv("DBNAME")
+	user := os.Getenv("DBUSER")
+	port := os.Getenv("PORT")
+	password := os.Getenv("DB_PASSWD")
+	psqlInfo := fmt.Sprintf("host=%s port=%s user=%s "+
+		"password=%s dbname=%s sslmode=disable",
+		host, port, user, password, dbname)
 
 	// connect to database
 	db, err := sql.Open("postgres", psqlInfo)
