@@ -142,7 +142,7 @@ func InsertReading(db *sql.DB) gin.HandlerFunc {
 			newReading.Light,
 			time.Now(),
 			time.Now(),
-			1,
+			newReading.ID,
 		)
 		if err != nil {
 			panic(err)
@@ -185,7 +185,7 @@ func PageRender(db *sql.DB, pageTopic string) gin.HandlerFunc {
 			query = `SELECT id, pressure, created_at
 				  FROM "READINGS"`
 		case "uv":
-			query = `SELECT id, pressure, created_at
+			query = `SELECT id, uv, created_at
 				  FROM "READINGS"`
 		}
 		rows, err := db.Query(query)

@@ -1,6 +1,7 @@
 package json_models
 
 type SensorData struct {
+	ID          int     `json:"id"`
 	Temperature float32 `json:"temperature"`
 	Humidity    float32 `json:"humidity"`
 	Pressure    float32 `json:"pressure"`
